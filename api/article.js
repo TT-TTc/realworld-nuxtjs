@@ -40,10 +40,28 @@ export const getArticle = (slug) => {
 }
 
 
-// 获取文章详情
+// 获取评论
 export const getComments = (slug) => {
   return request({
     url: `/api/articles/${slug}/comments`,
     method: 'GET',
+  })
+}
+
+
+// 创建文章
+export const createArticle = (data) => {
+  return request({
+    url: '/api/articles',
+    method: 'POST',
+    data
+  })
+}
+// 更新文章
+export const updateArticle = (data,slug) => {
+  return request({
+    url: `/api/articles/${slug}`,
+    method: 'PUT',
+    data
   })
 }

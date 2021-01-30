@@ -12,6 +12,9 @@ const mutations = {
   setUser(state, data) {
     state.user = data
   },
+  clearUser(state,data = null){
+    state.user = null
+  }
 }
 
 const actions = {

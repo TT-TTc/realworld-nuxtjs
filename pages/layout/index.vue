@@ -10,7 +10,7 @@
               <nuxt-link class="nav-link " to="/" exact>Home</nuxt-link>
             </li>
             <li class="nav-item">
-              <nuxt-link class="nav-link" to="/editor">
+              <nuxt-link class="nav-link" to="/editor/">
                 <i class="ion-compose"></i>&nbsp;New Post
               </nuxt-link>
             </li>
@@ -20,11 +20,16 @@
               </nuxt-link>
             </li>
             <li class="nav-item">
-              <nuxt-link class="nav-link" to="/profile/1">
-                <img
-                  class="user-pic"
-                  :src="user.image"
-                />{{user.username}}
+              <nuxt-link
+                class="nav-link"
+                :to="{
+                  name: 'profile',
+                  params: {
+                    username: user.username,
+                  },
+                }"
+              >
+                <img class="user-pic" :src="user.image" />{{ user.username }}
               </nuxt-link>
             </li>
           </template>
@@ -66,10 +71,10 @@ export default {
     ...mapState(['user']),
   },
   watch: {
-    user(val){
-      console.log(val);
-    }
-  }
+    user(val) {
+      console.log(val)
+    },
+  },
 }
 </script>
 
